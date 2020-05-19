@@ -37,15 +37,15 @@ type Image struct {
 // Downloads and a virtual machine image
 func (img *Image) Download(destPath string) error {
 	if img.URL == "" {
-		panic("URL is required")
+		return fmt.Errorf("URL is required")
 	}
 
 	if img.Checksum == "" {
-		panic("Checksum is required")
+		return fmt.Errorf("Checksum is required")
 	}
 
 	if img.ChecksumType == "" {
-		panic("Checksum type is required")
+		return fmt.Errorf("Checksum type is required")
 	}
 
 	if destPath == "" {
